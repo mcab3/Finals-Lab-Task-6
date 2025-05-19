@@ -108,7 +108,10 @@ title : Avatar
 **CHANGE:**   
 <img src="Images/u1.png" width="500">
       
-**INPUT & OUTPUT:**    
+**INPUT:**
+db.movies.update({title: "The Hobbit An Unexpected Journey"}, {$set: {synopsis: "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home and the gold within it - from the dragon Smaug."}})
+          
+**OUTPUT:**  
 <img src="Images/uu1.png" width="500">  
      
 2. add a synopsis to "The Hobbit: The Desolation of Smaug" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."       
@@ -116,16 +119,22 @@ title : Avatar
 **CHANGE:**          
 <img src="Images/u2.png" width="500">    
        
-**INPUT & OUTPUT:**          
-<img src="Images/uu2.png" width="500">   
+**INPUT:**         
+db.movies.update({title: "The Hobbit: The Desolation of Smaug"}, {$set: {synopsis: "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring."}})   
+                      
+**OUTPUT:**          
+<img src="Images/uu2.png" width="500">    
     
 3. add an actor named "Samuel L. Jackson" to the movie "Pulp Fiction"  
 **CHANGE:**   
-<img src="Images/u3.png" width="500">
-    
-**INPUT & OUTPUT:**           
+<img src="Images/u3.png" width="500">      
+            
+**INPUT:**      
+db.movies.update({title: "Pulp Fiction"}, {$push: {actors: "Samuel L. Jackson"}})
+                   
+**OUTPUT:**           
 <img src="Images/uu3.png" width="500">    
-
+                                  
 - **Text Search**      
 1. find all movies that have a synopsis that contains the word "Bilbo"  
 **INPUT:**   
@@ -176,24 +185,43 @@ title : Avatar
   
 - **Relationships**       
 
-username : GoodGuyGreg
-first_name : "Good Guy"
-last_name : "Greg"  
+<p align="center">
+Insert the following to <code>user</code> collection.<br>
+Code: <code>db.users.insertMany([{ _id: 1, username: "GoodGuyGreg", first_name: "Good Guy", last_name: "Greg" }, { _id: 2, username: "ScumbagSteve", full_name: { first: "Scumbag", last: "Steve" } }])</code>
+</p>
 
-**INPUT:**   
-<img src="Images/2pm.png" width="500">   
-      
-**OUTPUT:**    
-<img src="Images/2pm.png" width="500">   
+<p align="center">
+  <img src="Images/User1.PNG" alt="User Insert" width="400"><br>
+  After Insert Results:<br>
+  <img src="Images/User1R.PNG" alt="User Insert Result" width="400">
+</p>
+
+
+**Insert the following documents into a <code>posts</code> collection.**
+Code: <code>db.comments.insertMany([{ username: "GoodGuyGreg", comment: "Hope you got a good deal!", post: ObjectId("68282cda172fd1a7fdf6f2") }, { username: "GoodGuyGreg", comment: "What's mine is yours!", post: ObjectId("68282cec172fd1a7fdf6f6") }, { username: "GoodGuyGreg", comment: "Don't violate the licensing agreement!", post: ObjectId("68282cf0172fd1a7fdf6f7") }])</code>
+
   
-username : ScumbagSteve
-full_name :
-  first : "Scumbag"
-  last : "Steve"  
-    
-**INPUT:**  
-<img src="Images/2pm.png" width="500">   
-    
-**OUTPUT:**  
-<img src="Images/2pm.png" width="500">   
+
+  <img src="Images/C1.PNG" alt="Comment Insert 1" width="400"><br>
+  <img src="Images/C2.PNG" alt="Comment Insert 2" width="400">
+
+  
+  
+**Insert the following documents into a <code>comments</code> collection.<br>**
+Code:<br> <code>
+db.comments.insert({username:"GoodGuyGreg", comment:"Hope you got a good deal!", post:ObjectId("5ca0b7e96435f98b5901f463")});<br>
+db.comments.insert({username:"GoodGuyGreg", comment:"What's mine is yours!", post:ObjectId("5ca0b9706435f98b5901f46a")});<br>
+db.comments.insert({username:"GoodGuyGreg", comment:"Don't violate the licensing agreement!", post:ObjectId("5ca0b8766435f98b5901f467")});<br>
+db.comments.insert({username:"ScumbagSteve", comment:"It still isn't clean", post:ObjectId("5ca0b8546435f98b5901f466")});<br>
+db.comments.insert({username:"ScumbagSteve", comment:"Denied your PR cause I found a hack", post:ObjectId("5ca0b9256435f98b5901f469")});
+</code>
+</p>
+  
+
+  <img src="Images/Post1-1.PNG" alt="Post Insert 1" width="400"><br> 
+  <img src="Images/Post1-2.PNG" alt="Post Insert 2" width="400"><br><br>
+  Relational Afterwards:<br>
+  <img src="Images/PostResult.PNG" alt="Final Relational Result" width="400">
+</p>
+
  
