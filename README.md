@@ -185,43 +185,44 @@ db.movies.update({title: "Pulp Fiction"}, {$push: {actors: "Samuel L. Jackson"}}
   
 - **Relationships**       
 
-<p align="center">
-Insert the following to <code>user</code> collection.<br>
-Code: <code>db.users.insertMany([{ _id: 1, username: "GoodGuyGreg", first_name: "Good Guy", last_name: "Greg" }, { _id: 2, username: "ScumbagSteve", full_name: { first: "Scumbag", last: "Steve" } }])</code>
-</p>
 
-<p align="center">
-  <img src="Images/User1.PNG" alt="User Insert" width="400"><br>
-  After Insert Results:<br>
-  <img src="Images/User1R.PNG" alt="User Insert Result" width="400">
-</p>
+**Insert the following to <code>user</code> collection.<br>**
+**INPUT:*** <code>db.users.insertMany([{ _id: 1, username: "GoodGuyGreg", first_name: "Good Guy", last_name: "Greg" }, { _id: 2, username: "ScumbagSteve", full_name: { first: "Scumbag", last: "Steve" } }])</code>
 
 
-**Insert the following documents into a <code>posts</code> collection.**
-Code: <code>db.comments.insertMany([{ username: "GoodGuyGreg", comment: "Hope you got a good deal!", post: ObjectId("68282cda172fd1a7fdf6f2") }, { username: "GoodGuyGreg", comment: "What's mine is yours!", post: ObjectId("68282cec172fd1a7fdf6f6") }, { username: "GoodGuyGreg", comment: "Don't violate the licensing agreement!", post: ObjectId("68282cf0172fd1a7fdf6f7") }])</code>
+  <img src="Images/r1.png" width="400">
+     
+**OUTPUT**:      
+  <img src="Images/r2.png" width="400">
 
-  
 
-  <img src="Images/C1.PNG" alt="Comment Insert 1" width="400"><br>
-  <img src="Images/C2.PNG" alt="Comment Insert 2" width="400">
+
+**Insert the following documents into a <code>posts</code> collection.**          
+**INPUT:*** <code>db.comments.insertMany([{ username: "GoodGuyGreg", comment: "Hope you got a good deal!", post: ObjectId("68282cda172fd1a7fdf6f2") }, { username: "GoodGuyGreg", comment: "What's mine is yours!", post: ObjectId("68282cec172fd1a7fdf6f6") }, { username: "GoodGuyGreg", comment: "Don't violate the licensing agreement!", post: ObjectId("68282cf0172fd1a7fdf6f7") }])</code>
 
   
+
+  <img src="Images/r3.png" width="400">
+  <img src="Images/r4.png" width="400">
+
   
-**Insert the following documents into a <code>comments</code> collection.<br>**
-Code:<br> <code>
+  
+**Insert the following documents into a <code>comments</code> collection.<br>**       
+**INPUT:*** <br> <code>
 db.comments.insert({username:"GoodGuyGreg", comment:"Hope you got a good deal!", post:ObjectId("5ca0b7e96435f98b5901f463")});<br>
 db.comments.insert({username:"GoodGuyGreg", comment:"What's mine is yours!", post:ObjectId("5ca0b9706435f98b5901f46a")});<br>
 db.comments.insert({username:"GoodGuyGreg", comment:"Don't violate the licensing agreement!", post:ObjectId("5ca0b8766435f98b5901f467")});<br>
 db.comments.insert({username:"ScumbagSteve", comment:"It still isn't clean", post:ObjectId("5ca0b8546435f98b5901f466")});<br>
 db.comments.insert({username:"ScumbagSteve", comment:"Denied your PR cause I found a hack", post:ObjectId("5ca0b9256435f98b5901f469")});
 </code>
-</p>
+
   
 
-  <img src="Images/Post1-1.PNG" alt="Post Insert 1" width="400"><br> 
-  <img src="Images/Post1-2.PNG" alt="Post Insert 2" width="400"><br><br>
-  Relational Afterwards:<br>
-  <img src="Images/PostResult.PNG" alt="Final Relational Result" width="400">
-</p>
+  <img src="Images/r5.png" width="400">
+  <img src="Images/r6.png" width="400">
+
+ **OUTPUT**:<br>
+ <img src="Images/r7.png" width="400">
+
 
  
